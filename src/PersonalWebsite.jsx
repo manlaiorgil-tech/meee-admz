@@ -400,12 +400,24 @@ export default function PersonalWebsite() {
                 <p className="text-sm uppercase tracking-[0.25em] text-neutral-400">Interactive</p>
                 <h2 className="font-serif text-5xl">Play & Listen</h2>
                 <p className="max-w-lg text-neutral-300">A little retro snake game and my current favorite track built directly into the website.</p>
-                <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
-                  <p className="mb-4 text-sm uppercase tracking-[0.2em] text-neutral-400">Now Playing</p>
-                  <h3 className="font-serif text-3xl">Valentino — LOVERS</h3>
-                  <audio controls className="mt-5 w-full">
-                    <source src="/Valentino - LOVERS.mp3" type="audio/mpeg" />
-                  </audio>
+                <div className="spotify-player">
+  <div className="spotify-left">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg"
+      alt="Spotify"
+      className="spotify-logo"
+    />
+
+    <div>
+      <h3>LOVERS</h3>
+      <p>Valentino</p>
+    </div>
+  </div>
+
+  <audio controls className="spotify-audio">
+    <source src="/music/Valentino - LOVERS.mp3" type="audio/mpeg" />
+  </audio>
+</div>
                 </div>
               </div>
               <SnakeGame />
