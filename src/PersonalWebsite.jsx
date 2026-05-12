@@ -3,17 +3,60 @@ import SnakeGame from './SnakeGame';
 import SpotifyPlayer from './SpotifyPlayer';
 
 const skills = [
-  'Business Developing',
-  'Marketing',
-  'Modeling',
-  'Photographing',
-  'Web Developing',
-  'Designing',
-  'Selling',
+  'Customer Service',
+  'Food & Beverage',
+  'Communication',
+  'Teamwork',
+  'Web Development',
+  'Organization',
+  'Office Applications',
   'DJing',
 ];
 
-
+const experience = [
+  {
+    role: 'Front of House',
+    company: 'On a Roll Catering',
+    period: 'Jul 2025 – Mar 2026',
+    description:
+      'Greeting guests in busy environments, taking orders and payments through POS, handling customer inquiries, assisting with setup and restocking, and supervising new staff.',
+  },
+  {
+    role: 'Pizza Chef & Order Taker',
+    company: 'Base Wood Fired Pizza',
+    period: 'Sep 2024 – Jul 2025',
+    description:
+      'Prepared wood-fired pizzas in a fast-paced kitchen, took in-store and phone orders, handled payments, and worked closely with kitchen and front-of-house teams.',
+  },
+  {
+    role: 'Pizza and Burger Chef',
+    company: 'Moreish Pizza',
+    period: 'May 2024 – Sep 2024',
+    description:
+      'Prepared pizzas and burgers consistently while maintaining food quality and cleanliness standards during service.',
+  },
+  {
+    role: 'Sales Representative',
+    company: 'Smart Store',
+    period: 'Aug 2023 – Apr 2024',
+    description:
+      'Handled customer calls, resolved issues, promoted products, and managed stock records with a strong focus on communication.',
+  },
+  {
+    role: 'Barista',
+    company: 'Tom N Toms Coffee',
+    period: 'Nov 2022 – Aug 2023',
+    description:
+      'Prepared espresso-based drinks and teas, maintained bar cleanliness, and assisted customers in a busy café setting.',
+  },
+  {
+    role: 'Waiter',
+    company: 'Bluefin Cuisine D\'Art',
+    period: 'Jun 2022 – Nov 2022',
+    description:
+      'Took customer orders, served food and drinks, maintained a clean dining area, and delivered friendly service during busy hours.',
+  },
+];
 
 const images = {
   hero: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image00057-Of3Vt3speVN8d1RkojgWh27V1vrDFx.jpeg',
@@ -53,6 +96,7 @@ export default function PersonalWebsite() {
           <nav className="hidden items-center gap-10 text-sm md:flex">
             <a href="#about" className="text-muted transition-colors hover:text-charcoal">About</a>
             <a href="#gallery" className="text-muted transition-colors hover:text-charcoal">Gallery</a>
+            <a href="#experience" className="text-muted transition-colors hover:text-charcoal">Experience</a>
             <a href="#contact" className="text-muted transition-colors hover:text-charcoal">Contact</a>
           </nav>
           <a
@@ -81,10 +125,10 @@ export default function PersonalWebsite() {
                   Based in Dublin, Ireland
                 </p>
                 <h1 className="mt-6 font-serif text-5xl leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
-                  Marketer & Designer with a Creative Eye
+                  Hospitality Professional & Creative Soul
                 </h1>
                 <p className="mt-8 max-w-md text-lg leading-relaxed text-muted">
-                  From the steppes of Mongolia to the streets of Dublin — capturing moments through photography and crafting visual stories through design.
+                  From the steppes of Mongolia to the streets of Dublin — bringing warmth, reliability, and exceptional service to everything I do.
                 </p>
                 <div className="mt-10 flex flex-wrap items-center gap-6">
                   <a
@@ -120,7 +164,7 @@ export default function PersonalWebsite() {
                     className="h-full w-full object-cover"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-charcoal/60 to-transparent p-8">
-                    <p className="text-sm text-cream/80"></p>
+                    <p className="text-sm text-cream/80">Available for opportunities</p>
                   </div>
                 </div>
               </motion.div>
@@ -130,7 +174,7 @@ export default function PersonalWebsite() {
 
         {/* About Section */}
         <section id="about" className="border-t border-border">
-          <div className="mx-auto max-w-7xl px-6 py-24 lg:px-12 lg:py-0">
+          <div className="mx-auto max-w-7xl px-6 py-24 lg:px-12 lg:py-32">
             <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
               <motion.div
                 initial="hidden"
@@ -152,10 +196,10 @@ export default function PersonalWebsite() {
                 className="flex flex-col justify-center"
               >
                 <p className="text-lg leading-relaxed text-muted">
-                  {"I'm a creative professional passionate about design and photography. My journey has taken me from Mongolia to Ireland, where I blend my cultural heritage with modern visual storytelling through marketing and design work."}
+                  {"I'm a highly motivated professional with diverse experience across hospitality, customer service, and food preparation. My journey has taken me from Mongolia to Ireland, working in busy restaurants, cafés, and service roles."}
                 </p>
                 <p className="mt-6 text-lg leading-relaxed text-muted">
-                  {"I specialize in creating compelling visual content that connects with audiences. Whether it's capturing the perfect shot or designing brand experiences, I bring creativity and attention to detail to every project."}
+                  {"I take pride in learning fast, staying reliable, and delivering exceptional customer experiences. Whether it's crafting the perfect pizza or creating memorable guest interactions, I bring the same dedication to every role."}
                 </p>
               </motion.div>
             </div>
@@ -164,7 +208,7 @@ export default function PersonalWebsite() {
 
         {/* Image Gallery - Bento Grid */}
         <section id="gallery" className="border-t border-border bg-white">
-          <div className="mx-auto max-w-7xl px-6 py-0 lg:px-12 lg:py-0">
+          <div className="mx-auto max-w-7xl px-6 py-24 lg:px-12 lg:py-32">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -172,8 +216,9 @@ export default function PersonalWebsite() {
               variants={fadeUp}
               className="mb-16"
             >
-              <p className="text-sm uppercase tracking-[0.25em] text-muted"></p>
+              <p className="text-sm uppercase tracking-[0.25em] text-muted">Gallery</p>
               <h2 className="mt-6 font-serif text-4xl leading-tight md:text-5xl">
+                Moments & Memories
               </h2>
             </motion.div>
 
@@ -192,7 +237,7 @@ export default function PersonalWebsite() {
                 <img
                   src={images.street}
                   alt="Edinburgh street style"
-                  className="h-full w-full object-cover object-right transition-transform duration-700 hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </motion.div>
 
@@ -252,6 +297,7 @@ export default function PersonalWebsite() {
               variants={fadeUp}
               className="mt-8 text-center text-sm text-muted"
             >
+              From Mongolian heritage to Scottish adventures
             </motion.p>
           </div>
         </section>
@@ -266,12 +312,55 @@ export default function PersonalWebsite() {
               variants={fadeUp}
               className="font-serif text-3xl leading-relaxed md:text-4xl lg:text-5xl"
             >
-              {"\"Design isn't just visual — it's about creating experiences that resonate and stories that inspire.\""}
+              {"\"Customer service isn't just a job — it's about creating moments that people remember.\""}
             </motion.blockquote>
           </div>
         </section>
 
-        
+        {/* Experience Section */}
+        <section id="experience" className="border-t border-border">
+          <div className="mx-auto max-w-7xl px-6 py-24 lg:px-12 lg:py-32">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={fadeUp}
+              className="mb-16 lg:mb-20"
+            >
+              <p className="text-sm uppercase tracking-[0.25em] text-muted">Experience</p>
+              <h2 className="mt-6 font-serif text-4xl leading-tight md:text-5xl">
+                Work History
+              </h2>
+            </motion.div>
+
+            <div className="space-y-0">
+              {experience.map((job, index) => (
+                <motion.div
+                  key={`${job.role}-${job.company}`}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
+                  variants={fadeUp}
+                  custom={index * 0.05}
+                  className="group border-b border-border py-10 first:border-t lg:py-12"
+                >
+                  <div className="grid gap-6 lg:grid-cols-12 lg:items-start lg:gap-8">
+                    <div className="lg:col-span-3">
+                      <p className="text-sm text-muted">{job.period}</p>
+                    </div>
+                    <div className="lg:col-span-4">
+                      <h3 className="font-serif text-2xl">{job.role}</h3>
+                      <p className="mt-2 text-muted">{job.company}</p>
+                    </div>
+                    <div className="lg:col-span-5">
+                      <p className="leading-relaxed text-muted">{job.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Skills Section */}
         <section id="skills" className="border-t border-border bg-white">
@@ -312,7 +401,25 @@ export default function PersonalWebsite() {
                 <p className="text-sm uppercase tracking-[0.25em] text-neutral-400">Interactive</p>
                 <h2 className="font-serif text-5xl">Play & Listen</h2>
                 <p className="max-w-lg text-neutral-300">A little retro snake game and my current favorite track built directly into the website.</p>
-                <SpotifyPlayer />
+                <div className="spotify-player">
+  <div className="spotify-left">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg"
+      alt="Spotify"
+      className="spotify-logo"
+    />
+
+    <div>
+      <h3>LOVERS</h3>
+      <p>Valentino</p>
+    </div>
+  </div>
+
+  <audio controls className="spotify-audio">
+    <source src="/music/Valentino - LOVERS.mp3" type="audio/mpeg" />
+  </audio>
+</div>
+                </div>
               </div>
               <SnakeGame />
             </motion.div>
@@ -334,7 +441,7 @@ export default function PersonalWebsite() {
                   {"Let's work together."}
                 </h2>
                 <p className="mt-8 max-w-md text-lg leading-relaxed text-muted">
-                  Looking for a creative marketer or designer for your next project? I&apos;d love to hear from you.
+                  Looking to hire someone reliable and customer-focused? I&apos;d love to hear from you.
                 </p>
               </motion.div>
 
@@ -409,7 +516,7 @@ export default function PersonalWebsite() {
             <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
               <p className="font-serif text-lg">Manlai Orgil</p>
               <p className="text-sm text-muted">
-                Dublin, Ireland — Marketer & Designer
+                Dublin, Ireland — Available for opportunities
               </p>
             </div>
           </div>
