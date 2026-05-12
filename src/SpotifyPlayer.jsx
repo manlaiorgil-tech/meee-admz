@@ -172,7 +172,7 @@ export default function SpotifyPlayer() {
         {/* Album Art */}
         <div className="relative mb-6 aspect-square overflow-hidden rounded-lg shadow-xl">
           <img
-            src="https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/artworks-OlqzAOP2zhZXkf0g-QgyD0Q-t500x500-XptByDnVX6FJsSJtT6ctpZNb0M9Kq2.jpg"
             alt="Album cover"
             className="h-full w-full object-cover"
           />
