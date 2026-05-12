@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
 import SnakeGame from './SnakeGame';
 
 const skills = [
@@ -75,103 +74,6 @@ const fadeUp = {
     transition: { duration: 0.8, delay, ease: [0.25, 0.1, 0.25, 1] },
   }),
 };
-
-
-function SpotifyLogo() {
-  return (
-    <svg viewBox="0 0 64 64" className="h-8 w-8" aria-hidden="true">
-      <circle cx="32" cy="32" r="32" fill="#1DB954" />
-      <path d="M18 24c9-3 22-2 30 3" stroke="#000" strokeWidth="5" strokeLinecap="round" fill="none" />
-      <path d="M20 33c8-2 18-1 25 3" stroke="#000" strokeWidth="4" strokeLinecap="round" fill="none" />
-      <path d="M22 41c6-1.5 14-.8 19 2" stroke="#000" strokeWidth="3.5" strokeLinecap="round" fill="none" />
-    </svg>
-  );
-}
-
-function SpotifyPlayer() {
-  const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(0.8);
-
-  useEffect(() => {
-    if (audioRef.current) audioRef.current.volume = volume;
-  }, [volume]);
-
-  const togglePlay = async () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    if (audio.paused) {
-      await audio.play();
-      setIsPlaying(true);
-    } else {
-      audio.pause();
-      setIsPlaying(false);
-    }
-  };
-
-  const formatTime = (time) => {
-    if (!Number.isFinite(time)) return '0:00';
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60).toString().padStart(2, '0');
-    return `${minutes}:${seconds}`;
-  };
-
-  const handleSeek = (event) => {
-    const nextTime = Number(event.target.value);
-    if (audioRef.current) audioRef.current.currentTime = nextTime;
-    setProgress(nextTime);
-  };
-
-  return (
-    <div className="spotify-player rounded-3xl border border-white/10 bg-[#121212] p-5 text-white shadow-2xl shadow-black/30 sm:p-6">
-      <div className="flex items-center gap-3 text-sm font-semibold text-[#1DB954]">
-        <SpotifyLogo />
-        <span>Spotify</span>
-      </div>
-
-      <div className="mt-5 flex items-center gap-4">
-        <div className={`spotify-cover grid h-20 w-20 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-neutral-800 to-black ${isPlaying ? 'is-playing' : ''}`}>
-          <span className="text-3xl">♪</span>
-        </div>
-        <div className="min-w-0 flex-1">
-          <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">Now playing</p>
-          <h3 className="truncate font-serif text-3xl">Valentino — LOVERS</h3>
-          <p className="mt-1 truncate text-sm text-neutral-400">Local audio • Web player</p>
-        </div>
-      </div>
-
-      <div className="mt-6 flex items-center gap-4">
-        <button type="button" onClick={togglePlay} className="spotify-play-button" aria-label={isPlaying ? 'Pause music' : 'Play music'}>
-          {isPlaying ? '❚❚' : '▶'}
-        </button>
-        <div className="min-w-0 flex-1">
-          <input type="range" min="0" max={duration || 0} step="1" value={progress} onChange={handleSeek} className="spotify-range" aria-label="Song progress" />
-          <div className="mt-2 flex justify-between text-xs text-neutral-500">
-            <span>{formatTime(progress)}</span>
-            <span>{formatTime(duration)}</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-4 flex items-center gap-3 text-xs text-neutral-400">
-        <span>Volume</span>
-        <input type="range" min="0" max="1" step="0.01" value={volume} onChange={(event) => setVolume(Number(event.target.value))} className="spotify-range" aria-label="Volume" />
-      </div>
-
-      <audio
-        ref={audioRef}
-        src="/Valentino - LOVERS.mp3"
-        preload="metadata"
-        onLoadedMetadata={(event) => setDuration(event.currentTarget.duration)}
-        onTimeUpdate={(event) => setProgress(event.currentTarget.currentTime)}
-        onEnded={() => setIsPlaying(false)}
-      />
-    </div>
-  );
-}
 
 const stagger = {
   visible: {
@@ -498,7 +400,13 @@ export default function PersonalWebsite() {
                 <p className="text-sm uppercase tracking-[0.25em] text-neutral-400">Interactive</p>
                 <h2 className="font-serif text-5xl">Play & Listen</h2>
                 <p className="max-w-lg text-neutral-300">A little retro snake game and my current favorite track built directly into the website.</p>
-                <SpotifyPlayer />
+                <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                  <p className="mb-4 text-sm uppercase tracking-[0.2em] text-neutral-400">Now Playing</p>
+                  <h3 className="font-serif text-3xl">Valentino — LOVERS</h3>
+                  <audio controls className="mt-5 w-full">
+                    <source src="/Valentino - LOVERS.mp3" type="audio/mpeg" />
+                  </audio>
+                </div>
               </div>
               <SnakeGame />
             </motion.div>
