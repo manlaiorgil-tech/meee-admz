@@ -80,10 +80,10 @@ export default function PersonalWebsite() {
                   Based in Dublin, Ireland
                 </p>
                 <h1 className="mt-6 font-serif text-5xl leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
-                  Hospitality Professional & Creative Soul
+                  Marketer & Designer with a Creative Eye
                 </h1>
                 <p className="mt-8 max-w-md text-lg leading-relaxed text-muted">
-                  From the steppes of Mongolia to the streets of Dublin — bringing warmth, reliability, and exceptional service to everything I do.
+                  From the steppes of Mongolia to the streets of Dublin — capturing moments through photography and crafting visual stories through design.
                 </p>
                 <div className="mt-10 flex flex-wrap items-center gap-6">
                   <a
@@ -151,10 +151,10 @@ export default function PersonalWebsite() {
                 className="flex flex-col justify-center"
               >
                 <p className="text-lg leading-relaxed text-muted">
-                  {"I'm a highly motivated professional with diverse experience across hospitality, customer service, and food preparation. My journey has taken me from Mongolia to Ireland, working in busy restaurants, cafés, and service roles."}
+                  {"I'm a creative professional passionate about design and photography. My journey has taken me from Mongolia to Ireland, where I blend my cultural heritage with modern visual storytelling through marketing and design work."}
                 </p>
                 <p className="mt-6 text-lg leading-relaxed text-muted">
-                  {"I take pride in learning fast, staying reliable, and delivering exceptional customer experiences. Whether it's crafting the perfect pizza or creating memorable guest interactions, I bring the same dedication to every role."}
+                  {"I specialize in creating compelling visual content that connects with audiences. Whether it's capturing the perfect shot or designing brand experiences, I bring creativity and attention to detail to every project."}
                 </p>
               </motion.div>
             </div>
@@ -265,7 +265,7 @@ export default function PersonalWebsite() {
               variants={fadeUp}
               className="font-serif text-3xl leading-relaxed md:text-4xl lg:text-5xl"
             >
-              {"\"Customer service isn't just a job — it's about creating moments that people remember.\""}
+              {"\"Design isn't just visual — it's about creating experiences that resonate and stories that inspire.\""}
             </motion.blockquote>
           </div>
         </section>
@@ -339,7 +339,7 @@ export default function PersonalWebsite() {
                   {"Let's work together."}
                 </h2>
                 <p className="mt-8 max-w-md text-lg leading-relaxed text-muted">
-                  Looking to hire someone reliable and customer-focused? I&apos;d love to hear from you.
+                  Looking for a creative marketer or designer for your next project? I&apos;d love to hear from you.
                 </p>
               </motion.div>
 
@@ -414,7 +414,7 @@ export default function PersonalWebsite() {
             <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
               <p className="font-serif text-lg">Manlai Orgil</p>
               <p className="text-sm text-muted">
-                Dublin, Ireland — Available for opportunities
+                Dublin, Ireland — Marketer & Designer
               </p>
             </div>
           </div>
