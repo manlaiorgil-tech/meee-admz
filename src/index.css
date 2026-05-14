@@ -35,3 +35,60 @@ body {
   background-color: var(--color-charcoal);
   color: var(--color-cream);
 }
+
+/* ── SnakeGame component classes ───────────────────────────── */
+.premium-card {
+  background: linear-gradient(135deg, #0a0f1e 0%, #0d1a2e 50%, #0a0f1e 100%);
+  border: 1px solid rgba(103, 232, 249, 0.12);
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 24px 60px rgba(0, 0, 0, 0.5),
+    0 0 80px rgba(103, 232, 249, 0.04);
+}
+
+.premium-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at top left,
+    rgba(103, 232, 249, 0.07) 0%,
+    transparent 55%
+  );
+  pointer-events: none;
+}
+
+.game-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.07);
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s, border-color 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.game-control:hover {
+  background: rgba(103, 232, 249, 0.15);
+  border-color: rgba(103, 232, 249, 0.4);
+  transform: scale(1.1);
+}
+
+.game-control:active {
+  transform: scale(0.95);
+}
+
+.snake-board {
+  /* Layout handled inline; this class exists for aria/touch targeting */
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
