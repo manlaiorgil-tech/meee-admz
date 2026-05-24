@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { fadeUp, stagger } from '../utils/animations';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const images = {
   street:
@@ -14,79 +14,71 @@ const images = {
     'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_1710-zKKf1B38eBlhZbTtjLgWJmywfjrBSj.jpeg',
 };
 
+function ParallaxImage({ src, alt, className = '' }) {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
+
+  return (
+    <div ref={ref} className={`overflow-hidden ${className}`}>
+      <motion.img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        style={{ y }}
+        className="h-[110%] w-full object-cover"
+      />
+    </div>
+  );
+}
+
 export default function GallerySection() {
   return (
-    <section id="gallery" className="border-t border-border bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-24 lg:px-12 lg:py-32">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={fadeUp}
-          className="mb-16"
-        >
-          <p className="text-sm uppercase tracking-[0.25em] text-muted">Gallery</p>
-          <h2 className="mt-6 font-serif text-4xl leading-tight md:text-5xl">Moments & Places</h2>
-        </motion.div>
+    <section id="gallery" className="border-t border-border">
+      <div className="mx-auto max-w-[1600px] px-6 py-32 lg:px-10 lg:py-48">
+        <div className="grid grid-cols-12 gap-6 lg:gap-12 mb-20 lg:mb-32">
+          <div className="col-span-12 lg:col-span-3">
+            <p className="text-xs uppercase tracking-[0.3em] text-muted">
+              (03) Gallery
+            </p>
+          </div>
+          <div className="col-span-12 lg:col-span-9">
+            <h2 className="text-4xl leading-[1.05] tracking-tightest md:text-6xl">
+              Moments & places.
+            </h2>
+          </div>
+        </div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={stagger}
-          className="grid gap-4 md:grid-cols-3 md:grid-rows-2"
-        >
-          <motion.div variants={fadeUp} className="md:row-span-2 overflow-hidden">
-            <img
-              src={images.street}
-              alt="Edinburgh street style"
-              loading="lazy"
-              width={600}
-              height={900}
-              className="h-full w-full object-cover object-right transition-transform duration-700 hover:scale-105"
-            />
-          </motion.div>
-          <motion.div variants={fadeUp} className="overflow-hidden">
-            <img
-              src={images.eagleHunter}
-              alt="Mongolian eagle hunter"
-              loading="lazy"
-              width={600}
-              height={400}
-              className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-            />
-          </motion.div>
-          <motion.div variants={fadeUp} className="overflow-hidden">
-            <img
-              src={images.clockTower}
-              alt="Balmoral Hotel clock tower"
-              loading="lazy"
-              width={600}
-              height={400}
-              className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-            />
-          </motion.div>
-          <motion.div variants={fadeUp} className="overflow-hidden">
-            <img
-              src={images.childhood}
-              alt="Childhood in Mongolia"
-              loading="lazy"
-              width={600}
-              height={400}
-              className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-            />
-          </motion.div>
-          <motion.div variants={fadeUp} className="overflow-hidden">
-            <img
-              src={images.oldTown}
-              alt="Edinburgh Old Town"
-              loading="lazy"
-              width={600}
-              height={400}
-              className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-            />
-          </motion.div>
-        </motion.div>
+        <div className="grid grid-cols-12 gap-4 lg:gap-6">
+          <ParallaxImage
+            src={images.street}
+            alt="Edinburgh street style"
+            className="col-span-12 md:col-span-7 aspect-[3/4]"
+          />
+          <ParallaxImage
+            src={images.eagleHunter}
+            alt="Mongolian eagle hunter"
+            className="col-span-12 md:col-span-5 aspect-[3/4] md:mt-32"
+          />
+          <ParallaxImage
+            src={images.clockTower}
+            alt="Edinburgh clock tower"
+            className="col-span-12 md:col-span-5 aspect-[4/5]"
+          />
+          <ParallaxImage
+            src={images.oldTown}
+            alt="Old Town"
+            className="col-span-12 md:col-span-7 aspect-[4/3] md:mt-24"
+          />
+          <ParallaxImage
+            src={images.childhood}
+            alt="Childhood in Mongolia"
+            className="col-span-12 aspect-[16/9]"
+          />
+        </div>
       </div>
     </section>
   );

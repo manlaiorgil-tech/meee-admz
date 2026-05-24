@@ -122,19 +122,17 @@ export default function SnakeGame() {
   };
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-cream p-4 sm:p-6">
-      <div className="mb-4 flex items-center justify-between">
+    <div className="border border-border p-6">
+      <div className="mb-6 flex items-center justify-between">
         <div>
-          <p className="text-xs uppercase tracking-[0.25em] text-muted">Arcade</p>
-          <h3 className="font-serif text-2xl text-charcoal sm:text-3xl">Snake</h3>
+          <p className="text-xs uppercase tracking-[0.3em] text-muted">Snake</p>
+          <p className="mt-1 text-xs text-muted">Arrow keys / swipe</p>
         </div>
-        <p className="rounded-full border border-charcoal/20 px-4 py-2 text-sm text-charcoal">
-          Score: {score}
-        </p>
+        <p className="text-sm">Score · {score}</p>
       </div>
 
       <div
-        className="snake-board grid gap-[2px] rounded-xl bg-charcoal/10 p-2"
+        className="snake-board grid gap-px bg-border p-px"
         style={{ gridTemplateColumns: `repeat(${GRID_SIZE}, minmax(0, 1fr))` }}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
@@ -149,47 +147,47 @@ export default function SnakeGame() {
           return (
             <div
               key={index}
-              className={`aspect-square rounded-[3px] transition-all duration-150 ${
-                isSnake ? 'bg-charcoal' : isFood ? 'bg-amber-500' : 'bg-charcoal/[0.06]'
+              className={`aspect-square transition-colors ${
+                isSnake
+                  ? 'bg-charcoal'
+                  : isFood
+                  ? 'bg-charcoal/40'
+                  : 'bg-cream'
               }`}
             />
           );
         })}
       </div>
 
-      <p className="mt-3 text-xs text-charcoal/50 sm:hidden">
-        Swipe inside the board. The page will not scroll while playing.
-      </p>
-
-      <div className="mt-5 grid grid-cols-3 gap-2 sm:hidden">
+      <div className="mt-6 grid grid-cols-3 gap-2 sm:hidden">
         <div />
         <button type="button" onClick={() => changeDirection({ x: 0, y: -1 })} className="game-btn">↑</button>
         <div />
         <button type="button" onClick={() => changeDirection({ x: -1, y: 0 })} className="game-btn">←</button>
-        <button type="button" onClick={resetGame} className="game-btn text-xs">Reset</button>
+        <button type="button" onClick={resetGame} className="game-btn text-[10px]">Reset</button>
         <button type="button" onClick={() => changeDirection({ x: 1, y: 0 })} className="game-btn">→</button>
         <div />
         <button type="button" onClick={() => changeDirection({ x: 0, y: 1 })} className="game-btn">↓</button>
         <div />
       </div>
 
-      <div className="mt-5 hidden flex-wrap gap-3 sm:flex">
+      <div className="mt-6 hidden flex-wrap gap-2 sm:flex">
         <button type="button" onClick={() => changeDirection({ x: 0, y: -1 })} className="game-btn">↑</button>
         <button type="button" onClick={() => changeDirection({ x: -1, y: 0 })} className="game-btn">←</button>
         <button type="button" onClick={() => changeDirection({ x: 1, y: 0 })} className="game-btn">→</button>
         <button type="button" onClick={() => changeDirection({ x: 0, y: 1 })} className="game-btn">↓</button>
-        <button type="button" onClick={resetGame} className="game-btn px-5 text-sm">Restart</button>
+        <button type="button" onClick={resetGame} className="game-btn px-4 text-xs">Restart</button>
       </div>
 
       {gameOver && (
-        <div className="mt-4 rounded-xl border border-charcoal/10 bg-charcoal/5 p-4">
-          <p className="mb-3 text-lg text-charcoal">Game Over — Score: {score}</p>
+        <div className="mt-6 border border-border p-4">
+          <p className="text-sm">Game over — Score {score}</p>
           <button
             type="button"
             onClick={resetGame}
-            className="rounded-full bg-charcoal px-5 py-2 text-cream transition-transform hover:scale-105"
+            className="mt-3 border border-charcoal px-5 py-2 text-xs uppercase tracking-[0.2em] transition-colors hover:bg-charcoal hover:text-cream"
           >
-            Play Again
+            Play again
           </button>
         </div>
       )}

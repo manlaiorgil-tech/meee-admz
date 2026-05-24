@@ -4,14 +4,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        cream: '#FAF9F6',
-        charcoal: '#1a1a1a',
-        muted: '#6b6b6b',
-        border: '#e5e5e5',
+        // Pure monochrome — Mono X7 inspired
+        cream: '#FFFFFF',
+        charcoal: '#0A0A0A',
+        muted: '#737373',
+        border: '#E5E5E5',
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
-        serif: ['DM Serif Display', 'serif'],
+        sans: ['Inter Tight', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+        serif: ['Inter Tight', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
+      letterSpacing: {
+        tightest: '-0.04em',
       },
     },
   },
